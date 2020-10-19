@@ -10,7 +10,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class DiscardServer {
-
+    /**
+     * https://netty.io/wiki/user-guide-for-4.x.html
+     */
     private int port;
 
     public DiscardServer(int port) {
@@ -41,6 +43,8 @@ public class DiscardServer {
             // shut down your server.
             f.channel().closeFuture().sync();
         } finally {
+
+
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }

@@ -8,8 +8,14 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) { // (2)
+
+        System.out.println("收到信息客户端发送的信息:" + msg);
+        ctx.write(msg); // (1)
+        System.out.println("写入到客户端信息：" + msg);
+        ctx.flush(); // (2)
+
         // Discard the received data silently.
-        ((ByteBuf) msg).release(); // (3)
+//        ((ByteBuf) msg).release(); // (3)
     }
 
     @Override
