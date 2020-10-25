@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.3.17
+    port: 6379
+#name: developmentYaml
+#datasource:
+#  url: jdbc:postgresql://localhost:5432/sb-all #createDatabaseIfNotExist=true for mysql
+#  username: postgres
+#  password: 123456
+#  driver-class-name: "org.postgresql.Driver" # MYSQL: com.mysql.jdbc.Driver
+#app:
+#  environment: development
+#server:
+#  url: http://myDevapp.org
+#  app:
+#    name: MyDevApplication
+#    threadCount: 10
+#    users:
+#      - Marco
+#      - James
+#servers:
+#  - www.abc.test.com
+#  - www.xyz.test.com
+---
+spring:
+  profiles: prod
+name: productionYaml
+app:
+  environment: production
+server:
+  url: http://myProductapp.org
+  app:
+    name: MyProdApplication
+    threadCount: 10
+    users:
+      - Marco
+      - Cola
+servers:
+  - www.abc.com
+  - www.xyz.com
